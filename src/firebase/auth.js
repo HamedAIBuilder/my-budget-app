@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut as fbSignOut, onAuthStateChanged, sendPasswordResetEmail } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut as fbSignOut, onAuthStateChanged, sendPasswordResetEmail, RecaptchaVerifier, signInWithPhoneNumber, sendEmailVerification } from 'firebase/auth';
 import { app } from './config'; // adjust if your firebase app export is named differently
 
 const auth = getAuth(app);
@@ -60,7 +60,6 @@ export function onAuthStateChangedListener(callback) {
 }
 
 // --- PHONE AUTHENTICATION ---
-import { RecaptchaVerifier, signInWithPhoneNumber, updateProfile, sendEmailVerification } from 'firebase/auth';
 
 // Set up reCAPTCHA for phone auth
 export function setupRecaptcha(containerId = 'recaptcha-container') {

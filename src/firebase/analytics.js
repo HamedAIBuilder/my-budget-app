@@ -49,6 +49,29 @@ export function calculatePercentageChange(current, previous) {
   return ((current - previous) / previous) * 100;
 }
 
+// Calculate monthly expenses total
+export function calculateMonthlyExpenses(expenses) {
+  if (!expenses || !Array.isArray(expenses)) return 0;
+  
+  return expenses.reduce((total, expense) => {
+    if (!expense.amount) return total;
+    
+    // Convert different frequencies to monthly amounts
+    switch (expense.frequency) {
+      case 'weekly':
+        return total + (expense.amount * 4.33); // Average weeks per month
+      case 'yearly':
+        return total + (expense.amount / 12);
+      case 'daily':
+        return total + (expense.amount * 30); // Average days per month
+      case 'monthly':
+      case 'one-time':
+      default:
+        return total + expense.amount;
+    }
+  }, 0);
+}
+
 // Generate financial insights based on user data
 export function generateFinancialInsights(incomeStreams, expenses, savingsGoals, monthlySummaries) {
   const insights = [];

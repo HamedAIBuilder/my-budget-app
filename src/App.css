@@ -1,3 +1,294 @@
+/* Auth Tabs */
+.auth-tabs {
+  display: flex;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.auth-tab {
+  flex: 1;
+  padding: 12px 24px;
+  border: none;
+  background: #f8fafc;
+  color: #64748b;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.auth-tab.active {
+  background: #3b82f6;
+  color: white;
+}
+
+.auth-tab:hover:not(.active) {
+  background: #e2e8f0;
+}
+
+/* Verification Method Selection */
+.verification-method {
+  margin: 16px 0;
+  text-align: left;
+}
+
+.verification-method label {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.method-options {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.method-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.method-options input[type="radio"] {
+  margin: 0;
+}
+
+/* Account Connection Page */
+/* Account Connection Styles */
+.account-connection-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.connection-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.connection-header h1 {
+  color: #1a365d;
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.connection-header p {
+  color: #4a5568;
+  font-size: 1.2rem;
+}
+
+.connection-status {
+  background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+  border: 1px solid #81e6d9;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.connection-status.loading {
+  background: linear-gradient(135deg, #fef5e7 0%, #fed7aa 100%);
+  border-color: #f6ad55;
+}
+
+.connection-status.success {
+  background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+  border-color: #68d391;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #e2e8f0;
+  border-top: 3px solid #3182ce;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.connection-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.connection-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.connection-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  border-color: #e6fffa;
+}
+
+.connection-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.connection-card h3 {
+  color: #1a365d;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.connection-card p {
+  color: #4a5568;
+  margin-bottom: 25px;
+}
+
+.account-form {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.account-form input,
+.account-form select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.account-form input:focus,
+.account-form select:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+.card-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.form-buttons button {
+  flex: 1;
+}
+
+.connect-btn {
+  background: linear-gradient(135deg, #3182ce 0%, #2b77c7 100%);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.connect-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(49, 130, 206, 0.4);
+}
+
+.connect-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.connect-btn.secondary {
+  background: linear-gradient(135deg, #805ad5 0%, #7c3aed 100%);
+}
+
+.connect-btn.secondary:hover:not(:disabled) {
+  box-shadow: 0 8px 20px rgba(128, 90, 213, 0.4);
+}
+
+.connect-btn.cancel {
+  background: linear-gradient(135deg, #718096 0%, #4a5568 100%);
+}
+
+.connect-btn.cancel:hover {
+  box-shadow: 0 8px 20px rgba(113, 128, 150, 0.4);
+}
+
+.connection-footer {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.security-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  border: 1px solid #e2e8f0;
+}
+
+.security-icon {
+  font-size: 2rem;
+  color: #48bb78;
+}
+
+.security-info div h4 {
+  margin: 0 0 5px 0;
+  color: #1a365d;
+  font-size: 1.2rem;
+}
+
+.security-info div p {
+  margin: 0;
+  color: #4a5568;
+  font-size: 0.95rem;
+}
+
+.skip-btn {
+  background: transparent;
+  color: #4a5568;
+  border: 2px solid #e2e8f0;
+  padding: 12px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.skip-btn:hover {
+  background: #f7fafc;
+  border-color: #cbd5e0;
+}
+
 /* Enhanced Dashboard Header */
 .dashboard-header {
   text-align: center;
@@ -311,6 +602,11 @@
   color: #61dafb;
 }
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -469,11 +765,154 @@ li button:hover {
 .switch-auth:hover {
   color: #2563eb;
 }
+
+/* Expense Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 4px;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.expense-form {
+  padding: 24px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #374151;
+  font-size: 14px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.add-expense-btn {
+  width: 100%;
+  background: #111827;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+
+.add-expense-btn:hover {
+  background: #1f2937;
+}
+
 @media (max-width: 700px) {
   .dashboard-grid {
     grid-template-columns: 1fr;
   }
   .App-header {
     padding: 12px 2vw 2vw 2vw;
+  }
+  
+  .modal-content {
+    margin: 10px;
+    max-width: calc(100vw - 20px);
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-header {
+    padding: 16px;
+  }
+  
+  .expense-form {
+    padding: 16px;
   }
 }
